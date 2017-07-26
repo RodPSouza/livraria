@@ -85,10 +85,13 @@
 			<h:commandButton value="Gravar" action="#{livroBean.gravar}">
 				<!-- Poderia ter sido utilizado os comandos @all, @form, @this e @none  -->
 				<!-- : iddoComponente -->
-				<f:ajax execute="@form" render="@form :tabelaLivros" />
+				<f:ajax execute="@form" render="@form :formTabelaLivros:tabelaLivros" />
 			</h:commandButton>
 
 		</h:form>
+		
+		
+		<h:form id="formTabelaLivros">
 		<h:dataTable id="tabelaLivros" value="#{livroBean.livros}" var="livro">
 			<h:column>
 				<f:facet name="header">Título</f:facet>
@@ -116,7 +119,15 @@
 						timeZone="America/Sao_Paulo" />
 				</h:inputText>
 			</h:column>
+			
+			<h:column>
+				<f:facet name="Remover"> </f:facet>
+				<h:commandLink value="remove" action="#{livroBean.remover(livro)}">
+					<f:ajax execute="tabelaLivros" render="@form :formTabelaLivros"/>	
+				</h:commandLink>			
+			</h:column>
 		</h:dataTable>
+		</h:form>
 		
 		
 		

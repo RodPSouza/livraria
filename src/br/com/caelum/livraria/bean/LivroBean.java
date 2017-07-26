@@ -73,6 +73,13 @@ public class LivroBean {
 		this.livro = new Livro();
 	}
 	
+	public void remover(Livro livro){
+		
+		System.out.println("Removendo Livro");
+		new DAO<Livro>(Livro.class).remove(livro);
+	}
+	
+	
 	public String formAutor() {
 		
 		System.out.println("Chamando o formulário do Autor");
