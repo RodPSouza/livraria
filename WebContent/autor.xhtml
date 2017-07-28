@@ -27,6 +27,28 @@
 		</h:form>
 		
 		
+			
+		<h:form id="formTabelaAutor">
+		<h:dataTable id="tabelaAutor" value="#{autorBean.autores}" var="autor">  
+			<h:column>
+				<f:facet name="header">Autor</f:facet>
+				<h:outputText value="#{autor.nome}"/>
+			</h:column>
+			<h:column>
+			
+				<h:commandLink value="X" action="#{autorBean.remove(autor)}"/>
+			</h:column>
+			
+			
+			<h:column>			
+				<h:commandLink value="Editar" action="#{autorBean.carrega(autor)}"/>
+			</h:column>
+			
+		</h:dataTable>
+		</h:form>
+			
+	   
+	   		
 		
 		</ui:define>
 		

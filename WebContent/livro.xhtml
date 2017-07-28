@@ -73,11 +73,15 @@
 
 
 
-				<h:dataTable value="#{livroBean.autoresDoLivro}" var="autor"
-					id="tabelaAutores">
+				<h:dataTable value="#{livroBean.autoresDoLivro}" var="autor" id="tabelaAutores">
 					<h:column>
 						<h:outputText value="#{autor.nome}" />
 					</h:column>
+					
+					<h:column>
+						<h:commandLink value="X" action="#{livroBean.removerAutorDoLivro(autor)}" />
+					</h:column>
+					
 				</h:dataTable>
 
 			</fieldset>
@@ -121,7 +125,13 @@
 			</h:column>
 			
 			<h:column>
-				<f:facet name="Remover"> </f:facet>
+				<f:facet name="header">Alterar </f:facet>
+				<h:commandLink value="altera" action="#{livroBean.carregar(livro)}"/>						
+			</h:column>
+			
+			
+			<h:column>
+				<f:facet name="header">Remover</f:facet>
 				<h:commandLink value="remove" action="#{livroBean.remover(livro)}">
 					<f:ajax execute="tabelaLivros" render="@form :formTabelaLivros"/>	
 				</h:commandLink>			

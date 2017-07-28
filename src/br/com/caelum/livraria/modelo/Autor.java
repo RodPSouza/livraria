@@ -1,8 +1,13 @@
 package br.com.caelum.livraria.modelo;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+
+import br.com.caelum.livraria.dao.DAO;
 
 @Entity
 public class Autor {
@@ -11,6 +16,20 @@ public class Autor {
 	@GeneratedValue
 	private Integer id;
 	private String nome;
+	
+	/*
+	private List<Autor> autores = new ArrayList<Autor>();
+	
+	
+	public List<Autor> getTodosAutores() {
+		return autores;
+	}
+	*/
+	/*
+	public void removeAutor(Autor autor) {
+		this.autores.remove(autor);
+		
+	}*/
 
 	public String getNome() {
 		return nome;
@@ -27,5 +46,7 @@ public class Autor {
 	public void setId(Integer id) {
 		this.id = id;
 	}
+	
+	
 
 }
