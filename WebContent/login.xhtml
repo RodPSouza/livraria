@@ -3,7 +3,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
-	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:jsf="http://xmlns.jcp.org/jsf">
+	
 
 
 <ui:composition template="_template.xhtml">
@@ -25,13 +27,16 @@
 						<f:passThroughAttribute name="type" value="email" />
 					</h:inputText>
 
+					<!-- Poderia também ter sido feito da maneira abaixo: -->
+					<!-- <input type="email" jsf:id="email" jsf:value="#{loginBean.usuario.email}"/> -->
+
+
 					<h:message for="email" id="messageEmail" />
 
 					<h:outputLabel value="Senha: " for="senha" />
-					<h:inputText id="senha" value="#{loginBean.usuario.senha}"
-						required="true">
-						<f:passThroughAttribute name="type" value="password" />
-					</h:inputText>
+					<h:inputSecret id="senha" value="#{loginBean.usuario.senha}" required="true"/>
+						
+					
 
 					<h:message for="senha" id="messageSenha" />
 
