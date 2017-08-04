@@ -10,6 +10,15 @@
 <h:body>
 	<div id="cabecalho">
 		<h:graphicImage library="img" name="logo.png" />
+		
+		
+		<!-- A condição é para não mostrar o logout na pagina de login -->
+		<h:form  rendered="#{usuarioLogado != null}">
+			
+			<h:commandLink value="Logout" action="#{loginBean.deslogar}" />
+		</h:form>
+		
+		
 		<h1>
 			<ui:insert name="titulo"></ui:insert>
 		</h1>
@@ -24,6 +33,8 @@
 		<ui:insert name="texto"></ui:insert>
 		<br />
 		<big>Copyright 2017 - Rodrigo Pereira</big>
+		<br />
+		<h:outputText value="#{sessionScope['usuarioLogado'].email}"/>
 			
 	</div>
 </h:body>
