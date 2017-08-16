@@ -10,24 +10,36 @@ public class UsuarioDao {
 
     public boolean existe(Usuario usuario){ 
 	
-	EntityManager em = new JPAUtil().getEntityManager();
-	TypedQuery<Usuario> createQuery = em.createQuery(" select u from Usuario u where u.email = :pEmail and u.senha = :pSenha", 
-									   Usuario.class);
+    	
+    	try {
+    		EntityManager em = new JPAUtil().getEntityManager();
+    		TypedQuery<Usuario> createQuery = em.createQuery(" select u from Usuario u where u.email = :pEmail and u.senha = :pSenha", 
+					   Usuario.class);
+    		
+    		createQuery.setParameter("pEmail", usuario.getEmail());
+    		createQuery.setParameter("pSenha", usuario.getSenha());
+    		
+    		try {
+    		
+    			Usuario resultado = createQuery.getSingleResult();
+    			
+    		}	catch (NoResultException ex){
+    				return false;
+    			
+    		}
+    	    
+    		em.close();
+    		
+			
+		} catch (Exception e) {
+			e.getMessage().toString();
+		}
+    	
 	
 	
-	createQuery.setParameter("pEmail", usuario.getEmail());
-	createQuery.setParameter("pSenha", usuario.getSenha());
 	
-	try {
 	
-		Usuario resultado = createQuery.getSingleResult();
-		
-	}	catch (NoResultException ex){
-			return false;
-		
-	}
-    
-	em.close();
+	
 	
 	return true;
 	

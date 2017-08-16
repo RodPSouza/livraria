@@ -47,6 +47,7 @@ public class AutorBean {
 		if (this.autor.getId() == null){
 		
 		new DAO<Autor>(Autor.class).adiciona(this.autor);
+		
 		} else {
 			
 			new DAO<Autor>(Autor.class).atualiza(this.autor);
