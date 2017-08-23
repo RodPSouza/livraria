@@ -108,7 +108,7 @@ public class LivroBean {
 		this.livro = new Livro();
 	}
 	
-	public void remover(Livro livro){
+	public void remover(Livro livro) throws Exception{
 		
 		System.out.println("Removendo Livro");
 		new DAO<Livro>(Livro.class).remove(livro);

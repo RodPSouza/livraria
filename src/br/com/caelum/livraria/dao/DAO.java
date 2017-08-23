@@ -31,14 +31,27 @@ public class DAO<T> {
 		em.close();
 	}
 
-	public void remove(T t) {
-		EntityManager em = new JPAUtil().getEntityManager();
-		em.getTransaction().begin();
+	public void remove(T t) throws Exception {
+		
+		try {
 
-		em.remove(em.merge(t));
+			EntityManager em = new JPAUtil().getEntityManager();
+			em.getTransaction().begin();
 
-		em.getTransaction().commit();
-		em.close();
+			em.remove(em.merge(t));
+
+			em.getTransaction().commit();
+			em.close();
+			
+		} catch (Exception e) {
+
+			System.out.println("Classe Remove");
+		}
+		
+		//System.out.println(t);
+
+		
+		
 	}
 
 	public void atualiza(T t) {
@@ -69,6 +82,24 @@ public class DAO<T> {
 		return instancia;
 	}
 
+	public boolean verificaAutorPossuiLivro(String autor){
+		
+		EntityManager em = new JPAUtil().getEntityManager();
+		long result = (Long) em.createQuery("Select count(n) from Livro_Autor Where autores_id = " + autor ).getSingleResult();
+		em.close();
+		
+		if(result>0){
+		 
+			return false;
+			
+		} else {
+			
+			return true;
+			
+		}
+		
+	}
+	
 	public int contaTodos() {
 		EntityManager em = new JPAUtil().getEntityManager();
 		long result = (Long) em.createQuery("select count(n) from livro n")

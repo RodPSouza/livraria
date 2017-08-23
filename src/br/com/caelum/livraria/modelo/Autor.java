@@ -57,5 +57,10 @@ public class Autor {
 	}
 	
 	
+	@Override
+	public String toString() {
+		
+		return String.format("%d", id);
+	}
 
 }

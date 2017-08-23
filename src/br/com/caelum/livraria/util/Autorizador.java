@@ -36,11 +36,11 @@ public class Autorizador implements PhaseListener {
 		}
 		
 		//Redirecionamento efetivamente falando para login.xhtml
-		//NavigationHandler handler = context.getApplication().getNavigationHandler();
-		//handler.handleNavigation(context, null, "/login?faces-redirect=true");
+		NavigationHandler handler = context.getApplication().getNavigationHandler();
+		handler.handleNavigation(context, null, "/login?faces-redirect=true");
 		
 		//Renderiza a resposta
-		//context.renderResponse();
+		context.renderResponse();
 		
 		
 	}
