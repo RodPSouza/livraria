@@ -21,6 +21,16 @@ public class LoginBean {
 		
 	}
 	
+	//Exemplos
+	
+	public void Input1(){
+		
+	}
+	
+    public void Input2(){
+		
+	}
+	
 	
 	public String efetuaLogin(){
 		

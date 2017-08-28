@@ -15,7 +15,7 @@
    
 	<ui:define name="conteudo">
 	
-		<p:messages globalOnly="true" />
+		<p:messages globalOnly="true" autoUpdate="true"/>
 
 		<h:form id="login">
 			<p:fieldset legend="Login">
@@ -40,8 +40,26 @@
 					<p:commandButton value="Efetuar Login" action="#{loginBean.efetuaLogin}" update="@form" process="@form" />
 
 				</h:panelGrid>
-			</p:fieldset>
+			</p:fieldset>			
 		</h:form>
+		
+		
+		<h:form id="teste">
+			  <p:panel id="painel1">
+                
+                <p:outputLabel>Input 01</p:outputLabel>
+                <p:inputText id="input1" required="true" requiredMessage="Input 01 não preenchido" value="#{loginBean.Input1}">
+                </p:inputText>
+                
+                <p:outputLabel>Input 02</p:outputLabel>
+                <p:inputText id="input2" required="true" requiredMessage="Input 02 não preenchido" value="#{loginBean.Input2}">
+                </p:inputText>
+                
+                
+                <p:commandButton value="botaoValida" id="botao01" process="@form" update="painel1"  global="true"></p:commandButton>
+                
+                </p:panel>
+			</h:form>
 	</ui:define>	
 </ui:composition>
 

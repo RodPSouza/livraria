@@ -17,7 +17,7 @@ public class Autor {
 	private Integer id;
 	private String nome;
 	private String email;
-	
+	public Integer testerender = 2;
 	/*
 	private List<Autor> autores = new ArrayList<Autor>();
 	
@@ -31,6 +31,14 @@ public class Autor {
 		this.autores.remove(autor);
 		
 	}*/
+
+	public Integer getTesterender() {
+		return testerender;
+	}
+
+	public void setTesterender(Integer testerender) {
+		this.testerender = testerender;
+	}
 
 	public String getNome() {
 		return nome;

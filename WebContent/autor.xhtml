@@ -38,13 +38,13 @@
 						<f:attribute name="type" value="email" />
 						<f:passThroughAttribute name="placeholder" value="Email do autor" />
 						<f:validateRegex pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$" />
-						<f:ajax event="blur" render="messageEmail" />
+						<p:ajax event="blur" render="messageEmail" listener="#{autorBean.teste123}"  update="gravar"/>
 					</p:inputText>
 
 					<p:message for="email" id="messageEmail" />
 
 
-					<p:commandButton value="Gravar" action="#{autorBean.gravar}"
+					<p:commandButton id="gravar"  value="Gravar" action="#{autorBean.gravar}" rendered="#{autorBean.testerender}"
 						process="@form" update="@form :formTabelaAutor" />
 
 				</h:panelGrid>
@@ -59,10 +59,10 @@
 		   			Autores	
 		    	</f:facet>
 		    	
-		    		<p:commandLink icon="fa fa-fw fa-remove" value="remove" 
+		    		<p:commandButton icon="fa fa-fw fa-remove" value="remove" 
 		    		action="#{autorBean.remove(autor)}" update="@form"/>
 		    	
-		    		<p:commandLink icon="fa fa-fw fa-edit" value="edita" 
+		    		<p:commandButton icon="fa fa-fw fa-edit" value="edita" 
 		    		action="#{autorBean.carrega(autor)}" update=":autor"/>
 		    		
 		    		#{autor.nome}, #{autor.email}

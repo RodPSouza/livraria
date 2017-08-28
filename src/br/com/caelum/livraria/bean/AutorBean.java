@@ -2,6 +2,7 @@ package br.com.caelum.livraria.bean;
 
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Random;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
@@ -17,10 +18,46 @@ import br.com.caelum.livraria.util.RedirectView;
 public class AutorBean {
 
 	private Autor autor = new Autor();
+	private boolean testerender;
 
+	
+	public AutorBean() {
+		this.setTesterender(true);
+	}
+	
 	// public void setAutor(Autor autor) {
 	// this.autor = autor;
 	// }
+	/*
+    public boolean isTesterender() {
+		return testerender;
+	}
+
+	public void setTesterender(boolean testerender) {
+		this.testerender = testerender;
+	}*/
+
+	public void teste123() {
+	
+    	//if(getTesterender()){
+		System.out.println("Passou por aqui!");
+		
+    		this.setTesterender(false);
+    	//}else {
+    	//	this.setTesterender(true);
+    	//}
+    		
+
+	}
+	
+
+	public boolean getTesterender() {
+		return testerender;
+	}
+
+	public void setTesterender(boolean testerender) {
+		this.testerender = testerender;
+	}
 
 	private Integer autorId;
 
